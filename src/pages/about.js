@@ -12,15 +12,15 @@ const About = ({ data: { about } }) => (
         <h1 className="sheet__title">{about.title}</h1>
         <p className="sheet__lead">{about.subtitle}</p>
         <div className="sheet__gallery">
-          <Img fluid={about.photo.fluid} />
-        </div>
-        <div
+          <Img fluid={about.photo.fluid} style={{height: '50%', width:'50%'}} />
+          <div
           className="sheet__body"
           dangerouslySetInnerHTML={{
             __html: about.bioNode.childMarkdownRemark.html,
           }}
         />
       </div>
+        </div>
     </article>
   </Layout>
 )
