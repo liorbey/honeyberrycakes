@@ -14,8 +14,10 @@ export default ({ data }) => (
       aria-labelledby="contained-modal-title-vcenter"
       centered
       show = {true}
+      style ={{backgroundColor: '#C0A172'}}
+
     >
-    <article className="sheet">
+    <article className="sheet gallery-showcase__modal">
       <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
         <h1 className="sheet__title">{data.datoCmsWork.title}</h1>
         <p className="sheet__lead">{data.datoCmsWork.excerpt}</p>
