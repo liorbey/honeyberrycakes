@@ -12,6 +12,7 @@ import Carousel2 from '../../carousel2.jpg';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faInstagram, faWhatsapp} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import {Animated} from "react-animated-css";
 
 
 import "../styles/index.sass";
@@ -19,19 +20,30 @@ import "../styles/index.sass";
 const TemplateWrapper = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
     const [hidden, setHidden] = useState(false);
+    const [fading, setFading] = useState(false);
+
   
     const handleScroll = () => {
       const top = window.pageYOffset || document.documentElement.scrollTop;
-      setHidden(top > 200);
-      console.log(top)
+      if (top>300){
+        setFading(true);
+        setTimeout(() => setHidden(true), 250);
+      }
+      else{
+        setFading(false);
+        setTimeout(() => setHidden(false), 250);
+      }
+     
     };
   
     useEffect(() => {
+      
       window.addEventListener("scroll", handleScroll);
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }, []);
+
   
 
   return (
@@ -75,6 +87,13 @@ const TemplateWrapper = ({ children }) => {
             seo={data.datoCmsHome.seoMetaTags}
           />
           <div className='header'>
+          <Animated
+      animationIn="zoomIn"
+      animationOut="zoomOut"
+      isVisible={!fading}
+      style={hidden ? { display: "none" }:null}
+ 
+    >
           <Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
             <Navbar.Brand >  
               <Link to="/"><img src = {Logo} alt = 'Honey Berry Cakes Logo'/></Link>
@@ -89,7 +108,10 @@ const TemplateWrapper = ({ children }) => {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
+          </Animated>
+
           </div>
+          
           <Carousel class='main-carousel'>
   <Carousel.Item>
     <img
@@ -138,22 +160,32 @@ const TemplateWrapper = ({ children }) => {
   </Row>
   <Row >
     <Col className="d-flex justify-content-center">
+    <a href = 'https://www.instagram.com/honeyberrycakesny/' style={{color:'#17a2b8', textDecoration: 'none', fontWeight: '600', fontStyle: 'normal', letterSpacing: '.02em',lineHeight: '1.6em', textTransform: 'none'}}>
+
     <Button variant="outline-info" size="lg">
       DM on Instagram
       <FontAwesomeIcon style={{marginLeft: '1rem'}} icon={faInstagram}/>
     </Button>
+    </a>
+
     </Col>
     <Col className="d-flex justify-content-center">
+    <a href = "mailto: lior.bey95@gmail.com" style={{color:'#17a2b8', textDecoration: 'none', fontWeight: '600', fontStyle: 'normal', letterSpacing: '.02em',lineHeight: '1.6em', textTransform: 'none'}}>
     <Button variant="outline-info" size="lg">
      Send us an email
       <FontAwesomeIcon style={{marginLeft: '1rem'}} icon={faEnvelope}/>
-    </Button>    
+    </Button>
+    </a>  
     </Col>
     <Col className="d-flex justify-content-center">
+    <a href = 'https://api.whatsapp.com/send?phone=7187375538&text=I%20want%20to%20find%20out%20about%20your%20products' style={{color:'#17a2b8', textDecoration: 'none', fontWeight: '600', fontStyle: 'normal', letterSpacing: '.02em',lineHeight: '1.6em', textTransform: 'none'}}>
+
     <Button variant="outline-info" size="lg">
      Whatsapp text
       <FontAwesomeIcon style={{marginLeft: '1rem'}} icon={faWhatsapp}/>
     </Button>    
+    </a>
+
     </Col>
   </Row>
 </Container>
