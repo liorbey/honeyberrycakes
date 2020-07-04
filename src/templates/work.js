@@ -4,11 +4,17 @@ import { HelmetDatoCms } from 'gatsby-source-datocms'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
+import {Modal} from 'react-bootstrap';
 
 import {Container,Row,Col} from 'react-bootstrap'
 
 export default ({ data }) => (
-  <Layout>
+  <Modal
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      show = {true}
+    >
     <article className="sheet">
       <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
         <h1 className="sheet__title">{data.datoCmsWork.title}</h1>
@@ -28,7 +34,8 @@ export default ({ data }) => (
       
        
     </article>
-  </Layout>
+    </Modal>
+
 )
 
 export const query = graphql`

@@ -2,12 +2,16 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Masonry from 'react-masonry-component'
 import Img from 'gatsby-image'
-import Layout from "../components/layout"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Layout from "../components/layout"
+import { Container } from 'react-bootstrap';
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <Masonry className="showcase">
+    
+    <Container fluid className= 'gallery-showcase'>
+    <hr style={{marginBottom: '5rem', }}></hr>
+    <Masonry>
       {data.allDatoCmsWork.edges.map(({ node: work }) => (
         <div key={work.id} className="showcase__item">
           <figure className="card">
@@ -16,7 +20,7 @@ const IndexPage = ({ data }) => (
             </Link>
             <figcaption className="card__caption">
               <h6 className="card__title">
-                <Link to={`/works/${work.slug}`}>{work.title}</Link>
+                <a href={`/works/${work.slug}`}>{work.title}</a>
               </h6>
               <div className="card__description">
                 <p>{work.excerpt}</p>
@@ -26,6 +30,7 @@ const IndexPage = ({ data }) => (
         </div>
       ))}
     </Masonry>
+    </Container>
   </Layout>
 )
 

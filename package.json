@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "author": "Stefano Verna <s.verna@datocms.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.29",
+    "@fortawesome/free-brands-svg-icons": "^5.13.1",
+    "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "bootstrap": "^4.5.0",
     "dotenv": "^8.1.0",
     "gatsby": "^2.22.10",

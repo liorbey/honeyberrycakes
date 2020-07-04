@@ -1,3 +1,4 @@
+
 @media screen and (max-width: 899px)
   .container__sidebar
     box-sizing: border-box
@@ -25,6 +26,24 @@
       transform: translate3d(200px, 0, 0)
 
 @media screen and (min-width: 900px)
+  .header 
+    display: block;
+    position: fixed;
+    z-index: 9000!important;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    height: 100px;
+    border-bottom: 0px solid rgba(255, 255, 255, 0.18);
+  .navbar
+      width: 70%
+      margin: auto;
+      margin-top: 5rem;
+  .navbar-nav.navbar-center 
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
+
   .containerz
     display: flex
     padding: 0
