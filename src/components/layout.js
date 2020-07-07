@@ -6,6 +6,7 @@ import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Logo from "../../Logo.png";
+import Logo2 from "../../logo_cartoon.png"
 import {
   Nav,
   Navbar,
@@ -95,7 +96,7 @@ const TemplateWrapper = ({ children }) => {
               <Navbar collapseOnSelect expand="lg" bg="light" variant="dark">
                 <Navbar.Brand>
                   <Link to="/">
-                    <img src={Logo} alt="Honey Berry Cakes Logo" />
+                    <img src={Logo} width='80' alt="Honey Berry Cakes Logo" />
                   </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -150,6 +151,7 @@ const TemplateWrapper = ({ children }) => {
             </Carousel.Item>
           </Carousel>
           <section>
+          <img src={Logo2} width='250' style={{'position': 'absolute', 'bottom': '-80px', 'left':'43%'}} alt="Honey Berry Cakes Logo" />
             <Container>
               <Row>
                 <Col style={{ marginTop: "7rem" }}>
